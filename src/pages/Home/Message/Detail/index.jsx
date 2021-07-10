@@ -17,20 +17,25 @@ const DetailData = [
 
 export default class Detail extends Component {
     render() {
-        console.log(this.props); 
+        console.log('Detail', this.props);
         // 接收params參數 
         // const {id, title} = this.props.match.params
-        
+        // console.log('id:', id, ', title', title);
+
         // 接收search參數
-        
-        // const findResult = DetailData.find((detailObj) => {
-        //     return detailObj.id === id  
-        // })
+        const {search} = this.props.location;           // search: "?id=01&title=消息1"
+        const {id, title} = qs.parse(search.slice(1));       // search: "id=01&title=消息1"  , 把前面的?去除掉
+
+
+        const findResult = DetailData.find((detailObj) => {
+            return detailObj.id === id  
+        })
+
         return (
             <ul>
-                <li>ID:??</li>
-                <li>TITLE: ??</li>
-                <li>CONTENT: ??</li>
+                <li>ID:{id}</li>
+                <li>TITLE:{title}</li>
+                <li>CONTENT:{findResult.content}</li>
             </ul>
         )
     }

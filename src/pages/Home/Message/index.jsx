@@ -35,9 +35,9 @@ export default class Message extends Component {
                 {/* 聲明接收params參數 */}
                 {/* <Route path="/home/message/detail/:id/:title" component={Detail} /> */}
 
-                {/* searchh0 參數無需聲明接收 */}
+                {/* search 參數無需聲明接收 */}
                 <Route path="/home/message/detail" component={Detail} />
-                
+
             </div>
         )
     }

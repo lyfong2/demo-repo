@@ -21,7 +21,7 @@ export default function Home() {
                 {/* 註冊路由 */}
                 <Switch>
                     <Route path="/home/news" component={News} />
-                    <Route path="/home/message" component={Message}/>
+                    <Route path="/home/message" component={Message} />
                     <Redirect to="/home/news" />
                 </Switch>
             </div>
