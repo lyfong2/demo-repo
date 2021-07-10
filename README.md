@@ -1,70 +1,67 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## 三, 路由的基本使用
+    1. 明確好介面的導航區、展示區
+    2. 導航區的a標籤改為Link標籤
+        <Link to="/xxxx">Demo</Link>
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 四、路由組件與一般組件
+    1. 寫法不同:
+        一般組件: <Demo/>
+        路由組件: <Route path="/demo" component={Demo} />
+    2. 存放位置不同:
+        一般組件: components
+        路由組件: pages
+    3. 接收到的props不同:
+        一般組件: 寫組件標籤時傳遞了甚麼, 就能收到甚麼
+        路由組件: 接收到三個固定的屬性
+                    history:
+                        go: ƒ go(n)
+                        goBack: ƒ goBack()
+                        goForward: ƒ goForward()
+                        push: ƒ push(path, state)
+                        replace: ƒ replace(path, state)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+                    location:
+                        pathname: "/about"
+                        search: ""
+                        state: undefined
 
-### `yarn test`
+                    match:
+                        params: {}
+                        path: "/about"
+                        url: "/about"
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 八、路由的嚴格匹配與模糊匹配
+    1. 默認使用的是模糊匹配 (簡單記: [輸入的路徑]必須包含要[匹配的路徑], 且順序要一致)
+    2. 開啟嚴格匹配: <Route exact={true} path="/about" component={About}/>
+    3. 嚴格匹配不要隨便開啟, 需要再開, 有些時候開啟會導致無法繼續匹配二級路由
 
-### `yarn eject`
+## 九、Redirect的使用
+    1. 一般寫在所有路由註冊的最下方,當所有路由都無法匹配時,跳轉到Redirect指定的路由
+    2. 具體編碼:
+        <Switch>
+            <Route path="/about" component={About}/>
+            <Route path="/home" component={Home}/>
+            <Redirect path="/about" />
+        </Switch>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+        
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 十、 嵌套路由
+        1.註冊子路由時要寫上父路由的path值
+        2.路由的匹配是按照註冊路由的順序進行的
+            ex: home/news
+## 十一、 向路由組件傳遞參數
+        1.params參數
+            路由鏈結(攜帶參數): <Link to="/demo/test/tom/18">詳情</Link>
+            註冊路由(聲明接收): <Route path="/demo/test/:name/:age" component={Test} />
+            接收參數: const {id, title} = this.propss.match.params
+        2.search參數
+        

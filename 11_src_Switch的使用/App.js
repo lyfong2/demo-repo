@@ -1,9 +1,10 @@
 import React,  {Component} from 'react'
-import {Route, Switch, Redirect} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import About from './pages/About';                  // About是路由組件
 import Home from './pages/Home';                    // Home是路由組件
 import Header from './components/Header';           //Header是一般組件
 import MyNavLink from './components/MyNavLink';
+import Test from './pages/Test';
 
 export default class App extends Component{
     render(){
@@ -23,6 +24,7 @@ export default class App extends Component{
                         </div>
                     </div>
                 </div>
+                
                 <div className="col-xs-6">
                     <div className="panel">
                         <div className="panel-body">
@@ -30,7 +32,7 @@ export default class App extends Component{
                             <Switch>
                                 <Route path="/about" component={About} />
                                 <Route path="/home" component={Home} />
-                                <Redirect to="/about" />
+                                <Route path="/home" component={Test} />  
                             </Switch>
                         </div>
                     </div>
