@@ -12,10 +12,10 @@ export default function Home() {
             <div>
                 <ul className="nav nav-tabs">
                     <li>
-                        <MyNavLink replace to="/home/news">News</MyNavLink>
+                        <MyNavLink to="/home/news">News</MyNavLink>
                     </li>
                     <li>
-                        <MyNavLink replace to="/home/message">Message</MyNavLink>
+                        <MyNavLink to="/home/message">Message</MyNavLink>
                     </li>
                 </ul>
                 {/* 註冊路由 */}

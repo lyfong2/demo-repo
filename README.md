@@ -32,9 +32,6 @@
                         url: "/about"
 
 
-
-
-
 ## 八、路由的嚴格匹配與模糊匹配
     1. 默認使用的是模糊匹配 (簡單記: [輸入的路徑]必須包含要[匹配的路徑], 且順序要一致)
     2. 開啟嚴格匹配: <Route exact={true} path="/about" component={About}/>
@@ -70,3 +67,12 @@
             接收參數: this.props.location.state
             備註: 刷新也是可以保留住參數
             
+
+## 十二、 編程式路由導航
+            借助this.props.history對象上的API對操作路由跳轉,前進,後退
+            - this.props.history.push()
+            - this.props.history.replace()
+            - this.props.history.goBack()
+            - this.props.history.goForward()
+            - this.props.history.go()
+
