@@ -1,6 +1,3 @@
-
-
-
 ## 三, 路由的基本使用
     1. 明確好介面的導航區、展示區
     2. 導航區的a標籤改為Link標籤
@@ -53,7 +50,6 @@
         </Switch>
 
         
-
 ## 十、 嵌套路由
         1.註冊子路由時要寫上父路由的path值
         2.路由的匹配是按照註冊路由的順序進行的
@@ -64,4 +60,13 @@
             註冊路由(聲明接收): <Route path="/demo/test/:name/:age" component={Test} />
             接收參數: const {id, title} = this.propss.match.params
         2.search參數
-        
+            路由鏈結(攜帶參數): <Link to="/demo/test?name=tom&age=18">詳情</Link>
+            註冊路由(無須聲明, 正常註冊即可): <Route path="/demo/test" component={Test}/>
+            接收參數: this.props.location.search
+            備註: 獲取到的search是urlencoded編碼字符串, 需要借助querystring解析
+        3. state參數
+            路由鏈結(攜帶參數): <Link to={{path: '/demo/test', state:{name:'tom', age:18}}}>詳情</Link>
+            註冊路由(無須聲明, 正常註冊即可): <Route path="/demo/test" component={Test}/>
+            接收參數: this.props.location.state
+            備註: 刷新也是可以保留住參數
+            

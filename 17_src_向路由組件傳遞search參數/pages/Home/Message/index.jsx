@@ -25,10 +25,7 @@ export default class Message extends Component {
                                     {/* <Link to={`/home/message/detail/${msgObj.id}/${msgObj.title}`} >{msgObj.title}</Link> */}
 
                                     {/* 向路由組件傳遞search參數 */}
-                                    {/* <Link to={`/home/message/detail/?id=${msgObj.id}&title=${msgObj.title}`}>{msgObj.title}</Link> */}
-
-                                    {/* 向路由組件傳遞state參數 */}
-                                    <Link to={{pathname: '/home/message/detail', state:{id:msgObj.id, title: msgObj.title}}}>{msgObj.title}</Link>
+                                    <Link to={`/home/message/detail/?id=${msgObj.id}&title=${msgObj.title}`}>{msgObj.title}</Link>
                                 </li>
                             )
                         })
@@ -39,9 +36,6 @@ export default class Message extends Component {
                 {/* <Route path="/home/message/detail/:id/:title" component={Detail} /> */}
 
                 {/* search 參數無需聲明接收 */}
-                {/* <Route path="/home/message/detail" component={Detail} /> */}
-                
-                {/* state 參數無需聲明接收, 正常註冊路由即可 */}
                 <Route path="/home/message/detail" component={Detail} />
 
             </div>

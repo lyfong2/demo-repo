@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import qs from 'querystring';
+import qs from 'querystring';
 
 // let obj = {name:'tom', age:18}  // name=tom&age=18  key=value&key=value
 // console.log(qs.stringify(obj)); // url encoded
@@ -23,17 +23,13 @@ export default class Detail extends Component {
         // console.log('id:', id, ', title', title);
 
         // 接收search參數
-        // const {search} = this.props.location;           // search: "?id=01&title=消息1"
-        // const {id, title} = qs.parse(search.slice(1));       // search: "id=01&title=消息1"  , 把前面的?去除掉
+        const {search} = this.props.location;           // search: "?id=01&title=消息1"
+        const {id, title} = qs.parse(search.slice(1));       // search: "id=01&title=消息1"  , 把前面的?去除掉
 
-
-        // 接收state參數
-
-        const {id, title} = this.props.location.state || {}; 
 
         const findResult = DetailData.find((detailObj) => {
             return detailObj.id === id  
-        }) || {}
+        })
 
         return (
             <ul>
