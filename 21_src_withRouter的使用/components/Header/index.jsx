@@ -16,7 +16,7 @@ class Header extends Component {
     }
 
     render(){
-        // console.log('Header組件收到的props是', this.props);
+        console.log('Header組件收到的props是', this.props);
         return (
             <div>
                 <h1>React Router Demo</h1>

@@ -6,7 +6,6 @@ import News from './News';
 import Message from './Message';
 
 export default function Home() {
-    
     return (
         <div>
             <h3>我是Home的內容</h3>

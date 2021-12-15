@@ -62,7 +62,7 @@
             接收參數: this.props.location.search
             備註: 獲取到的search是urlencoded編碼字符串, 需要借助querystring解析
         3. state參數
-            路由鏈結(攜帶參數): <Link to={{path: '/demo/test', state:{name:'tom', age:18}}}>詳情</Link>
+            路由鏈結(攜帶參數): <Link to={{pathname: '/demo/test', state:{name:'tom', age:18}}}>詳情</Link>
             註冊路由(無須聲明, 正常註冊即可): <Route path="/demo/test" component={Test}/>
             接收參數: this.props.location.state
             備註: 刷新也是可以保留住參數
@@ -75,4 +75,16 @@
             - this.props.history.goBack()
             - this.props.history.goForward()
             - this.props.history.go()
+
+## 十三、 BrowserRouter與HashRouter的區別
+    1.底層原理不一樣:
+        BrowserRouter使用的是H5的history API, 不兼容IE9及以下版本.
+        HashRouter使用的是URL的哈希值.
+    2.path表現形式不一樣
+        BrowserRouter的路徑中沒有#, 例如: localhost:3000/demo/test
+        HashRouter的路徑包含#, 例如: localhost:3000/#/demo/test
+    3.刷新後對路由state參數的影響
+        (1).BrowserRouter沒有任何影響, 因為state保存在history對象中.
+        (2).HashRouter刷新後會導致路由state參數的丟失.
+    4.備註: HashRouter可以用於解決一些路徑錯誤相關的問題.
 
