@@ -1,26 +1,23 @@
 import React, { Component } from 'react'
-import axios from 'axios';
+import Search from './components/Search'
+import List from './components/List'
+
 
 export default class App extends Component {
-    getStudentData = () => {
-        axios.get('http://localhost:3000/api1/students').then(
-            response => {console.log('成功了',response.data)},
-            error => {console.log('失敗了', error);}
-        )
-    }
+    
+    state = {users:[]}
 
-    getCarData = () => {
-        axios.get('http://localhost:3000/api2/cars').then(
-            response => {console.log('成功了',response.data)},
-            error => {console.log('失敗了', error);}
-        )
+    saveUsers = (users) => {        
+        this.setState({users: users})
     }
-
+    
     render() {
+        const {users} = this.state;
+
         return (
-            <div>
-                <button onClick={this.getStudentData}>點我獲取數據學生數據</button>
-                <button onClick={this.getCarData}>點我獲取數據汽車數據</button>
+            <div className="container">
+                <Search saveUsers={this.saveUsers}/>
+                <List users={users}/>
             </div>
         )
     }
