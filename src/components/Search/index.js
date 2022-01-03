@@ -45,7 +45,7 @@ export default class Search extends Component {
         try{
             const response = await fetch(`https://api.github.com/search/users?q=${keyWord}`)
             const data = await response.json()
-            PubSub.publish('dannyTest', {isLoading:false, users:data})
+            PubSub.publish('dannyTest', {isLoading:false, users:data.items})
 
             console.log(data);
         } catch (error) {
