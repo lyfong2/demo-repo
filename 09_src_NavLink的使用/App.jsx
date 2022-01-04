@@ -3,8 +3,6 @@ import { NavLink, Route } from "react-router-dom";
 import Home from "./pages/Home"; // Home是路由組件
 import About from "./pages/About"; // About是路由組件
 import Header from "./components/Header"; // Header是一般組件
-import MyNavLink from "./components/MyNavLink";
-
 
 export default class App extends Component {
   render() {
@@ -18,12 +16,12 @@ export default class App extends Component {
         <div className="row">
           <div className="col-xs-2 col-xs-offset-2">
             <div className="list-group">
-              <MyNavLink to="/about" to="/about" a={1} b={2} c={3}>
+              <NavLink activeClassName="atguigu" className="list-group-item" to="/about">
                 About
-              </MyNavLink>
-              <MyNavLink to="/home">
+              </NavLink>
+              <NavLink activeClassName="atguigu" className="list-group-item" to="/home">
                 Home
-              </MyNavLink>
+              </NavLink>
             </div>
           </div>
           <div className="col-xs-6">
