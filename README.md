@@ -33,6 +33,9 @@
     1. 明確好介面的導航區、展示區
     2. 導航區的a標籤改為Link標籤
         <Link to="/xxxx">Demo</Link>
+    3. 展示區寫Route標籤進行路徑的匹配
+        <Route path='/xxxx' component={Demo}>
+    4. <App>的最外側包裹了一個<BrowserRouter>或<HashRouter>
 
 
 ## 四、路由組件與一般組件
